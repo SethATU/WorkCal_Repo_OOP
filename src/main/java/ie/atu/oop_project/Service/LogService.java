@@ -16,9 +16,6 @@ public class LogService {
     }
 
     public Log createLog(Log log) {
-        if (logRepo.existsById(log.getId())) {
-            throw new RuntimeException("Log already exists!");
-        }
         return logRepo.save(log);
     }
 

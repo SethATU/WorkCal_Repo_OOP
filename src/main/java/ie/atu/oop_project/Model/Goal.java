@@ -1,8 +1,12 @@
 package ie.atu.oop_project.Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,10 +22,13 @@ import java.time.LocalDate;
 @Entity
 public class Goal {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
     private Long userId;
 
+    @NotNull
     @Min(value = 0, message = "Goal must be greater than 0")
     private Long goalTarget;
 
