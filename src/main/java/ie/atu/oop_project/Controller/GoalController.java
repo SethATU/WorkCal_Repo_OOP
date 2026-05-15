@@ -20,8 +20,10 @@ public class GoalController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createGoal(@Valid @RequestBody Goal goal){
-        return ResponseEntity.status(HttpStatus.CREATED).body(goalService.createGoal(goal));
+    public ResponseEntity<Goal> createGoal(@Valid @RequestBody Goal goal, @RequestParam String username, @RequestParam String password){
+        Long userId = goalService.login(username, password);
+        Goal newGoal = goalService.createGoal(goal, userId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newGoal);
     }
 
     @GetMapping("/findId/{id}")

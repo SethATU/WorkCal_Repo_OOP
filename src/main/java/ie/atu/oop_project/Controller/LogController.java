@@ -19,8 +19,10 @@ public class LogController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createLog(@Valid @RequestBody Log log){
-        return ResponseEntity.status(HttpStatus.CREATED).body(logService.createLog(log));
+    public ResponseEntity<?> createLog(@Valid @RequestBody Log log, @RequestParam String username, @RequestParam String password){
+        Long userId = logService.login(username, password);
+        Log newLog = logService.createLog(log,userId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newLog);
     }
 
     @GetMapping("/findId/{id}")
