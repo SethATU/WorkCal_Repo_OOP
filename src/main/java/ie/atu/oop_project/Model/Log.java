@@ -35,6 +35,6 @@ public class Log {
     @Min(value = 0, message = "Amount must be greater than 0")
     private Long calAmount;
 
-    @NotBlank(message = "Must enter valid date")
+    @NotNull(message = "Must enter valid date")
     private LocalDateTime dateLog;
 }

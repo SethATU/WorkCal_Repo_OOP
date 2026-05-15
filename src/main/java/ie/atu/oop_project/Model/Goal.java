@@ -35,6 +35,6 @@ public class Goal {
     @NotBlank(message = "Must be goal or loss")
     private String goalType;
 
-    @NotBlank(message = "Must enter valid date")
+    @NotNull(message = "Must enter valid date")
     private LocalDate dateGoal;
 }
