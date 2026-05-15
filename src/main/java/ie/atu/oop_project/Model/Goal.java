@@ -26,6 +26,7 @@ public class Goal {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long userId;
 
     @NotNull

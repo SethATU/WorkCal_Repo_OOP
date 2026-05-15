@@ -26,6 +26,7 @@ public class Log {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long userId;
 
     @NotBlank(message = "Must Enter Item Name")
